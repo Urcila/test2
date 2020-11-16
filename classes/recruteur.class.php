@@ -20,16 +20,18 @@ class Recruteur extends Database
 	}
 
 	public function create(){
-        $requete = $this->bdd->prepare("INSERT INTO recruteur (mail_recruteur, mdp_recruteur domaine_recruteur, tdc_recruteur,  lieu_recruteur, fiche_recruteur, texte_recruteur) 
-                                        VALUES (:mail_recruteur, :mdp_recruteur :domaine_recruteur, :tdc_recruteur, :lieu_recruteur, :fiche_recruteur, :texte_recruteur)");
+        // $requete = $this->bdd->prepare("INSERT INTO recruteur (mail_recruteur, mdp_recruteur domaine_recruteur, tdc_recruteur,  lieu_recruteur, fiche_recruteur, texte_recruteur) 
+        //                                 VALUES (:mail_recruteur, :mdp_recruteur :domaine_recruteur, :tdc_recruteur, :lieu_recruteur, :fiche_recruteur, :texte_recruteur)");
+         $requete = $this->bdd->prepare("INSERT INTO recruteur (mail_recruteur, mdp_recruteur) 
+         VALUES (:mail_recruteur, :mdp_recruteur)");
         
         $requete->bindValue(":mail_recruteur", $this->mail_recruteur);
         $requete->bindValue(":mdp_recruteur", $this->mdp_recruteur);
-        $requete->bindValue(":domaine_recruteur", $this->domaine_recruteur);
-        $requete->bindValue(":tdc_recruteur", $this->tdc_recruteur);
-        $requete->bindValue(":lieu_recruteur", $this->lieu_recruteur);
-        $requete->bindValue(":fiche_recruteur", $this->fiche_recruteur);
-        $requete->bindValue(":texte_recruteur", $this->texte_recruteur);        
+        // $requete->bindValue(":domaine_recruteur", $this->domaine_recruteur);
+        // $requete->bindValue(":tdc_recruteur", $this->tdc_recruteur);
+        // $requete->bindValue(":lieu_recruteur", $this->lieu_recruteur);
+        // $requete->bindValue(":fiche_recruteur", $this->fiche_recruteur);
+        // $requete->bindValue(":texte_recruteur", $this->texte_recruteur);        
 
         $resultat = $requete->execute();
 

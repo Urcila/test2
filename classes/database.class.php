@@ -9,6 +9,7 @@ class Database
     private $mdp = "";
 
     public function getConnexion() {
+        error_log("getConnexion");
 
         try {
             $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
